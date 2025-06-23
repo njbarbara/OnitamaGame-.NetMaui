@@ -1,0 +1,222 @@
+{
+  "Date": "\/Date(1749311969972+0200)\/",
+  "Gamemode": 1,
+  "ScoreP1": 0,
+  "ScoreP2": 0,
+  "IsOver": false,
+  "CurrentPlayer": {
+    "Color": 1,
+    "Name": "alban",
+    "_isBot": false
+  },
+  "_players": [
+    {
+      "Color": 1,
+      "Name": "alban",
+      "_isBot": false
+    },
+    {
+      "Color": 0,
+      "Name": "esteban",
+      "_isBot": false
+    }
+  ],
+  "_decks": [
+    {
+      "Key": {
+        "Color": 1,
+        "Name": "alban",
+        "_isBot": false
+      },
+      "Value": [
+        {
+          "Movement": {
+            "_positions": [
+              {
+                "PositionX": -3,
+                "PositionY": 0
+              },
+              {
+                "PositionX": 1,
+                "PositionY": 2
+              },
+              {
+                "PositionX": 0,
+                "PositionY": -1
+              }
+            ]
+          },
+          "Name": "Dragon"
+        },
+        {
+          "Movement": {
+            "_positions": [
+              {
+                "PositionX": 0,
+                "PositionY": 1
+              },
+              {
+                "PositionX": 1,
+                "PositionY": 0
+              },
+              {
+                "PositionX": -1,
+                "PositionY": -2
+              },
+              {
+                "PositionX": 2,
+                "PositionY": 3
+              }
+            ]
+          },
+          "Name": "Horse"
+        }
+      ]
+    },
+    {
+      "Key": {
+        "Color": 0,
+        "Name": "esteban",
+        "_isBot": false
+      },
+      "Value": [
+        {
+          "Movement": {
+            "_positions": [
+              {
+                "PositionX": -2,
+                "PositionY": -1
+              },
+              {
+                "PositionX": -1,
+                "PositionY": 2
+              },
+              {
+                "PositionX": 1,
+                "PositionY": 1
+              },
+              {
+                "PositionX": 3,
+                "PositionY": 0
+              }
+            ]
+          },
+          "Name": "Rat"
+        },
+        {
+          "Movement": {
+            "_positions": [
+              {
+                "PositionX": 2,
+                "PositionY": 1
+              },
+              {
+                "PositionX": -1,
+                "PositionY": -1
+              },
+              {
+                "PositionX": 0,
+                "PositionY": 4
+              }
+            ]
+          },
+          "Name": "Pig"
+        }
+      ]
+    }
+  ],
+  "CardInStack": {
+    "Movement": {
+      "_positions": [
+        {
+          "PositionX": 1,
+          "PositionY": -2
+        },
+        {
+          "PositionX": -2,
+          "PositionY": 1
+        },
+        {
+          "PositionX": 0,
+          "PositionY": 3
+        },
+        {
+          "PositionX": 4,
+          "PositionY": 0
+        }
+      ]
+    },
+    "Name": "Cat"
+  },
+  "Board": {
+    "Pawns": [
+      [
+        {
+          "Color": 1,
+          "_isSensei": false
+        },
+        null,
+        null,
+        null,
+        {
+          "Color": 0,
+          "_isSensei": false
+        }
+      ],
+      [
+        {
+          "Color": 1,
+          "_isSensei": false
+        },
+        null,
+        null,
+        null,
+        {
+          "Color": 0,
+          "_isSensei": false
+        }
+      ],
+      [
+        {
+          "__type": "Sensei:#OnitamaLib.Models",
+          "Color": 1,
+          "_isSensei": true
+        },
+        null,
+        null,
+        null,
+        {
+          "__type": "Sensei:#OnitamaLib.Models",
+          "Color": 0,
+          "_isSensei": true
+        }
+      ],
+      [
+        {
+          "Color": 1,
+          "_isSensei": false
+        },
+        null,
+        null,
+        null,
+        {
+          "Color": 0,
+          "_isSensei": false
+        }
+      ],
+      [
+        {
+          "Color": 1,
+          "_isSensei": false
+        },
+        null,
+        null,
+        null,
+        {
+          "Color": 0,
+          "_isSensei": false
+        }
+      ]
+    ]
+  }
+}

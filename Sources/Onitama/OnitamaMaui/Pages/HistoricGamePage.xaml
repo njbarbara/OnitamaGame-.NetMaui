@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.HistoricGamePage"
+             xmlns:views="clr-namespace:OnitamaMaui.Views"
+             xmlns:persistance="clr-namespace:Onitama.Persistance.Stub;assembly=Onitama.Persistance.Stub"
+             xmlns:models="clr-namespace:OnitamaLib.Models;assembly=OnitamaLib"
+             Title="HistoricGamePage">
+    <Grid RowDefinitions="25*,10*,70*">
+        <Image Source="okusai_bg.jpg" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+        <views:Header  PropertyTitle="Historique des parties"
+                       Grid.Row="0"/>
+        <Grid ColumnDefinitions="25*,25*,25*" Grid.Row="1">
+            <Label Grid.Column="0" Text="Gagnant" FontSize="Large" TextColor="Green" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="OrchideeMedium"/>
+            <Label Grid.Column="2" Text="Perdant" FontSize="Large" TextColor="Red" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontFamily="OrchideeMedium"/>
+        </Grid>
+
+
+        <CollectionView x:Name="OldGamesListView" 
+                ItemsSource="{Binding Games}"
+                Grid.Row="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Game">
+                    <views:SectionHistorique Game="{Binding}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        
+        
+        
+    </Grid>
+</ContentPage>

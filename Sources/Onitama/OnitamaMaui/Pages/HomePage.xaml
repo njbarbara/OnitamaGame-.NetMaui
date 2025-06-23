@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.HomePage"
+             Title="Menu">
+
+
+    <Grid ColumnDefinitions="30*,40*,30*"  RowDefinitions="10*,70*">
+
+        <Image Source="onitamaback.jpg" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"></Image>
+        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" CornerRadius="20" Padding="10" Margin="10" Opacity="0.9" HasShadow="True" HorizontalOptions="Fill" VerticalOptions="Fill">
+
+
+            <Grid ColumnDefinitions="30*,40*,30*">
+                        <ImageButton Grid.Column="0" WidthRequest="50" HeightRequest="50"  Source="boutonquit.png" HorizontalOptions="Center" Clicked="CloseApp" />
+
+                        <ImageButton Grid.Column="2" WidthRequest="50" HeightRequest="50"  Source="gear.png" HorizontalOptions="Center" Clicked="SettingsButton"/>
+            </Grid>
+        </Frame>
+
+     
+
+        <VerticalStackLayout Grid.Column="1" Grid.Row="1" Spacing="15">
+            <Image Source="onitamalogo.png" Grid.Column="1" Grid.Row="0"></Image>       
+
+            <Button Text="Jouer"   Grid.Column="1" Grid.Row="1" Margin="5" Clicked="PlayerButton"/>
+            <Button Text="Tableau des scores"   Grid.Column="1" Grid.Row="2" Margin="5" Clicked="HistoricButton"/>
+            <Button Text="Crédits"   Grid.Column="1" Grid.Row="3"  Margin="5" Clicked="CreditButton"/>
+            <Button Text="Règles" Grid.Column="1" Grid.Row="4" Margin="5" Clicked="RuleButton"/>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
+    

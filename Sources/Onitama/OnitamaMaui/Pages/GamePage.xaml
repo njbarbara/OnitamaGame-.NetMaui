@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.GamePage"
+             xmlns:Layouts="clr-namespace:OnitamaMaui.Layouts"
+             xmlns:Pages="clr-namespace:OnitamaMaui.Pages"
+             xmlns:conv="clr-namespace:OnitamaMaui.Converters"
+             xmlns:models="clr-namespace:OnitamaLib.Models;assembly=OnitamaLib">
+    <ContentPage.Resources>
+        <conv:Bool2String x:Key="converterBackground"/>
+        <conv:IsCurrentPlayer2string x:Key="converterIsCurrentPlayer"/>
+        <x:Double x:Key="VerticalSpacingBoard">5</x:Double>
+        <x:Double x:Key="HorizontalSpacingBoard">5</x:Double>
+        <DataTemplate x:Key="boardTemplate"  x:DataType="Layouts:PawnMaui">
+            <Grid BackgroundColor="Transparent">
+                <ImageButton  
+                            Source="{Binding ImageSource}"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            BackgroundColor="{Binding BackgroundColor}"
+                            Clicked="OnPawnButton">
+                    <ImageButton.GestureRecognizers>
+                        <DragGestureRecognizer />
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="cardTemplate" x:DataType="Layouts:CardMaui">
+            <Grid BackgroundColor="{Binding IsSelected, Converter={StaticResource converterBackground}}" >
+                <ImageButton
+                    Source="{Binding Card.Name, StringFormat='{0}.png'}"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    Padding="0"
+                    Margin="0"
+                    Clicked="OnCardButton"/>
+            </Grid>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="10*, 90*">
+        <Image Source="shogun.png" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+
+        <Grid ColumnDefinitions="20*,60*,20*"
+              Grid.Row="0">
+            <ImageButton Grid.Row="0"
+                         Grid.Column="0"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         Source="arrow_back.png"
+                         
+                         Clicked="BackButton"/>
+            <ImageButton Grid.Row="0"
+                         Grid.Column="2"
+                         WidthRequest="25"
+                         HeightRequest="25"
+                         Source="gear.png"
+                         Clicked="SettingsButton"
+                        />
+        </Grid>
+
+
+        <Grid ColumnDefinitions="40*,70*,40*"
+              Grid.Row="1"
+              Padding="10">
+            <Border
+                    StrokeShape="RoundRectangle 40,40,40,40"
+                    Grid.Column="0">
+                <BoxView
+                        Color="{Binding CurrentPlayerMaui.IsCurrentPlayer1, Converter={StaticResource converterIsCurrentPlayer}}"
+                        Opacity="0.8"/>
+
+            </Border>
+            <VerticalStackLayout
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="0"
+                Margin="0,0,20,0">
+
+                <Label 
+                    Text="{Binding NamePlayer1}" 
+                    FontAttributes="Bold"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+                <Label 
+                    Text="{Binding Game.ScoreP1, StringFormat='Score = {0} points'}"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+                <Layouts:MatrixLayout 
+                    BindableLayout.ItemsSource="{Binding DeckPlayer1.FlatMatrix2d}" 
+                    BindableLayout.ItemTemplate="{StaticResource cardTemplate}" 
+                    NbColumns="1"
+                    NbRows="2"
+                    HorizontalSpacing="0"
+                    VerticalSpacing="0"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    Margin="0" 
+                    Padding="90,0"/>
+
+                <Label
+                    Text="{Binding CurrentPlayerMaui.NbPawnEatenPlayer2, StringFormat='{0} pièces mangées'}"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <Grid
+                 Grid.Column="1"
+                 RowDefinitions="80*, 30*">
+                <Layouts:MatrixLayout 
+                        Grid.Row="0"
+                        BindableLayout.ItemsSource="{Binding Matrix.FlatMatrix2d}" 
+                        BindableLayout.ItemTemplate="{StaticResource boardTemplate}" 
+                        NbColumns="{Binding Matrix.NbColumns}"
+                        NbRows="{Binding Matrix.NbRows}"
+                        HorizontalSpacing="{StaticResource HorizontalSpacingBoard}"
+                        VerticalSpacing="{StaticResource VerticalSpacingBoard}"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        Padding="10" 
+                        Margin="20"/>
+                <Image                           
+                    Grid.Row="1"
+                    Source="{Binding CardInStack.Card.Name, StringFormat='{0}.png'}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="20"/>
+            </Grid>
+
+
+            <Border
+                    StrokeShape="RoundRectangle 40,40,40,40"
+                    Grid.Column="2">
+                <BoxView 
+                       Color="{Binding CurrentPlayerMaui.IsCurrentPlayer2, Converter={StaticResource converterIsCurrentPlayer}}"
+                       Opacity="0.8"/>
+            </Border>
+            <VerticalStackLayout
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="0"
+                Margin="0,0,20,0">
+
+                <Label 
+                    Text="{Binding NamePlayer2}" 
+                    FontAttributes="Bold"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+                <Label 
+                    Text="{Binding Game.ScoreP2, StringFormat='Score = {0} points'}"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+                <Layouts:MatrixLayout 
+                    BindableLayout.ItemsSource="{Binding DeckPlayer2.FlatMatrix2d}" 
+                    BindableLayout.ItemTemplate="{StaticResource cardTemplate}" 
+                    NbColumns="1"
+                    NbRows="2"
+                    HorizontalSpacing="10"
+                    VerticalSpacing="0"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    Margin="0" 
+                    Padding="90,0"/>
+
+                <Label
+                    Text="{Binding CurrentPlayerMaui.NbPawnEatenPlayer1, StringFormat='{0} pièces mangées'}"
+                    FontSize="Header"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>
+    
+    

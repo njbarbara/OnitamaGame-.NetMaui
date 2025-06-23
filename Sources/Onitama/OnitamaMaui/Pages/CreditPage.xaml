@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.CreditPage"
+             xmlns:views="clr-namespace:OnitamaMaui.Views"
+             Title="CreditPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="contenu">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="auto,*">
+        <Image Source="okusai_bg.jpg" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+        <views:Header  PropertyTitle="Crédits" 
+                       Grid.Row="0"/>
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="10*,80*,10*" RowDefinitions="10*,25*,25*">
+                <Border
+                    StrokeShape="RoundRectangle 40,40,40,40"
+                    Grid.Column="1"
+                    Grid.Row="1">
+                    <Rectangle 
+                       BackgroundColor="White"
+                       Opacity="0.8"/>
+                </Border>
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label 
+                        Style="{StaticResource contenu}"
+                        Text="Bienvenue dans l’univers de Onitama en plein cœur de l’ère edo au pays du soleil  levant. Vous incarnez ici un fin stratège à la tête d’un groupe de 4 samouraïs dont le but est de défaire le seigneur de la faction ennemie qui dispose des mêmes forces que vous, tout en  protégeant le vôtre au prix de votre vie ! A vous de placer vos troupes afin de parvenir à vos fins et de devenir le maître incontesté d’Onitama"/>
+                    <Label
+                        Style="{StaticResource contenu}"
+                        Text="Ce jeu a été réalisé dans le cadre d'un projet universitaire, par Alban Tixier, Najib Barbara, Esteban Jacques."/>
+                    <Label 
+                        Style="{StaticResource contenu}"
+                        Text="Merci d'avoir joué à notre jeu."/>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,9 @@
+Xaml : 
+- Views 
+- Layout 
+- Styles 
+    - global 
+    - local 
+- Themes 
+- ContentView
+- (DataTemplate)

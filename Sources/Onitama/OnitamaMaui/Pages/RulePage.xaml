@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.RulePage"
+             xmlns:views="clr-namespace:OnitamaMaui.Views"
+             Title="RulePage">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="description">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+        <Style TargetType="Label" x:Key="titre">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Header" />
+            <Setter Property="TextDecorations" Value="Underline" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="auto,*">
+        <Image Source="okusai_bg.jpg" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+        <views:Header  PropertyTitle="Règle" 
+                       Grid.Row="0"/>
+        <ScrollView Grid.Row="1">
+            <Grid ColumnDefinitions="10*,80*,10*" RowDefinitions="10*,25*,25*">
+                <Border
+                    StrokeShape="RoundRectangle 40,40,40,40"
+                    Grid.Column="1"
+                    Grid.Row="1">
+                    <Rectangle 
+                       BackgroundColor="White"
+                       Opacity="0.8"/>
+                </Border>
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label 
+                        Style="{StaticResource titre}"
+                        Text="Installation"/>
+                    <Label 
+                        Style="{StaticResource description}"
+                        Text=" On dispose 4 pions rouge et 4 pions bleu, placés de part et d’autre du plateau. Chaque roi est positionné entre les 4 pions de son camp. Chaque joueur reçoit 2 cartes de déplacements tirées au sort et placées en face de lui. Et une carte de réserve est placée à côté du plateau. "/>
+                    <Label 
+                        Style="{StaticResource titre}"
+                        Text="Déroulement d’un tour"/>
+                    <Label 
+                        Style="{StaticResource description}"
+                        Text="Le premier joueur est désigné aléatoirement, contrairement aux règles classiques du jeu. À son tour, il doit choisir une carte parmi celles placées devant lui, sélectionner une pièce et la déplacer en respectant les indications de la carte. Les cases rouges indiquent les déplacements possibles, tandis que la case noire représente la position actuelle du pion. "/>
+                    <Label 
+                        Style="{StaticResource titre}"
+                        Text="Déplacement"/>
+                    <Label 
+                        Style="{StaticResource description}"
+                        Text="Pour déplacer n’importe quel pion, vous devez choisir une carte de votre main, et déplacer votre pions sur l’une des cases de couleur (voir image), vous devez obligatoirement bouger un pion pour passer la main, vous ne pouvez également pas choisir une position en dehors du plateau ni une position occupée par un pion allié.  À la fin de votre tour, la carte que vous venez d’utiliser est échangée contre celle placée en réserve, et la main passe !"/>
+                    <Label 
+                        Style="{StaticResource titre}"
+                        Text="Mode apocalypse"/>
+                    <Label 
+                        Style="{StaticResource description}"
+                        Text="Dans ce mode, les règles restent les mêmes mais faites attention à chaque tour, des pièges sont posés sur certaines cases rendant leur acccès impossible."/>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.VictoryPage"
+             xmlns:models="clr-namespace:OnitamaLib.Models;assembly=OnitamaLib"
+             xmlns:Pages="clr-namespace:OnitamaMaui.Pages"
+             Title="VictoryPage">
+    <Grid RowDefinitions="30*,50*,20*"
+          ColumnDefinitions="10*,80*,10*" >
+        <Image Source="shogun.png" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+
+        <Label 
+            Text="BANZAI !!!!"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontSize="Header"
+            Padding="12"
+            BackgroundColor="White"
+            Opacity="0.8"
+            Grid.Column="1"
+            Grid.Row="0"/>
+        
+        <VerticalStackLayout Grid.Row="1"
+                     Grid.Column="1"
+                     x:DataType="Pages:VictoryPage"
+                     BackgroundColor="White"
+                     Opacity="0.8"
+                     Spacing="0">
+                    <Label FontSize="Header"
+                   Text="{Binding Winner.Name,
+                          StringFormat='Le sensei {0} a battu'}"
+                           HorizontalOptions="CenterAndExpand"/>    
+                    <Label FontSize="Header"
+                   Text="{Binding Loser.Name,
+                          StringFormat='le sensei {0},'}" 
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Label FontSize="Header"
+                   Text="{Binding Game.ScoreP1,
+                          StringFormat='avec un score de {0} points'}" 
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Label FontSize="Header"
+                   Text="{Binding Game.ScoreP2,
+                          StringFormat='contre un score de {0} points'}" 
+                           HorizontalOptions="CenterAndExpand"/>
+        </VerticalStackLayout>
+        <Button Text="Revenir sur la page principale" Grid.Row="2" Grid.Column="1" Margin="40" Clicked="GoBackToMainPage"/>
+
+
+    </Grid>
+</ContentPage>

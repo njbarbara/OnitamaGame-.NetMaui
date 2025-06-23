@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="OnitamaMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OnitamaMaui.Pages"
+    Title="OnitamaMaui"
+    Shell.NavBarIsVisible="False"
+    FlyoutBehavior="Disabled">
+
+        <ShellContent
+             Title="Home"
+             ContentTemplate="{DataTemplate local:HomePage}"/>
+        <ShellContent
+                    Title="Page de victoire"
+                    ContentTemplate="{DataTemplate local:VictoryPage}"/>
+        <ShellContent
+                Title="Page de crédit"
+                ContentTemplate="{DataTemplate local:CreditPage}"/>
+        <ShellContent
+            Title="Page d'historique des parties"
+            ContentTemplate="{DataTemplate local:HistoricGamePage}"/>
+        <ShellContent
+             Title="CreatePage"
+             ContentTemplate="{DataTemplate local:CreatePage}"/>
+        <ShellContent
+             Title="Page de selection"
+             ContentTemplate="{DataTemplate local:GameSelectionPage}"/>
+        <ShellContent
+             Title="Page de jeu"
+             ContentTemplate="{DataTemplate local:GamePage}"/>
+        <ShellContent
+            Title="Page de règles"
+            ContentTemplate="{DataTemplate local:RulePage}"/>
+        <ShellContent
+            Title="Page de paramètre"
+            ContentTemplate="{DataTemplate local:SettingsPage}"/>
+
+
+
+</Shell>

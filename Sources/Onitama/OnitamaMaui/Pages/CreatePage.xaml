@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.CreatePage"
+             Title="CreatePage"
+             xmlns:pages="clr-namespace:OnitamaMaui.Pages"
+             x:DataType="pages:CreatePage"
+             xmlns:views="clr-namespace:OnitamaMaui.Views">
+
+    <ContentPage.Resources>
+        <Style TargetType="Entry" x:Key="ColorEntryCreatePage">
+            <Setter Property="BackgroundColor" Value="Black"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Opacity" Value="0.9"/>
+            <Setter Property="FontFamily" Value="Shai_Fonts"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid ColumnDefinitions="10,*" RowDefinitions="Auto,*,Auto">
+        <Image Source="sekiro_bg.jpg" Grid.RowSpan="100" Grid.ColumnSpan="100" Aspect="AspectFill"/>
+
+        <views:Header PropertyTitle="Créer votre partie" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Opacity="0.8"/>
+
+
+        <Frame Grid.Row="1" Grid.Column="1" CornerRadius="30" BackgroundColor="White" Opacity="0.9" Padding="30"  HorizontalOptions="Center" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="40">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                    <RadioButton Content="Mode Classique" IsChecked="True" TextColor="Black" FontFamily="Shai_Fonts" FontSize="Large"/>
+                    <RadioButton Content="Mode Apocalypse" IsChecked="{Binding GameMode, Mode=OneWayToSource}" TextColor="Black" FontFamily="Shai_Fonts" FontSize="Large"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="40">
+                    <RadioButton Content="1 Joueur" IsChecked="{Binding IsSinglePlayer, Mode=OneWayToSource}" TextColor="Black" FontFamily="Shai_Fonts" FontSize="Large"/>
+                    <RadioButton Content="2 Joueurs" IsChecked="True" TextColor="Black" FontFamily="Shai_Fonts" FontSize="Large"/>
+                </HorizontalStackLayout>
+
+
+                <VerticalStackLayout Spacing="20">
+                    <Label Text="Nom du Joueur 1 :" HorizontalTextAlignment="Center" FontSize="Large"  TextColor="Black"/>
+                    <Entry Text="{Binding Player1Name, Mode=OneWayToSource}" Style="{StaticResource ColorEntryCreatePage}" WidthRequest="400" HorizontalOptions="Center"/>
+
+                    <Label Text="Nom du joueur 2 :" HorizontalTextAlignment="Center" FontSize="Large" TextColor="Black" IsVisible="{Binding IsMultiplayer, Mode=OneWay}"/>
+                    <Entry Text="{Binding Player2Name, Mode=OneWayToSource}" Style="{StaticResource ColorEntryCreatePage}" WidthRequest="400" HorizontalOptions="Center" IsVisible="{Binding IsMultiplayer, Mode=OneWay}"/>
+                </VerticalStackLayout>
+
+                <Button Text="Lancer la partie" HorizontalOptions="Fill" WidthRequest="500"  HeightRequest="50" Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

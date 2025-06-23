@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="this"
+             x:Class="OnitamaMaui.Views.Header"
+             BindingContext="{x:Reference this}" >
+    <ContentView.Resources>
+        <Style TargetType="ImageButton" >
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="BorderWidth" Value="0"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="MinimumHeightRequest" Value="44"/>
+            <Setter Property="MinimumWidthRequest" Value="44"/>
+        </Style>
+    </ContentView.Resources>
+    
+    <Grid RowDefinitions="*" 
+          ColumnDefinitions="20*,60*,20*">
+        
+        <ImageButton  
+           Grid.Row="0"
+           Grid.Column="0"
+           WidthRequest="25"
+           HeightRequest="25"
+           Source="arrow_back.png"
+           Clicked="GoBack"/>
+        <Label 
+            Text="{Binding PropertyTitle, FallbackValue='Mon titre'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontSize="Header"
+            Padding="12"
+            Grid.Column="1"
+            Grid.Row="0"/>
+        <ImageButton  
+           Grid.Row="0"
+           Grid.Column="2"
+           WidthRequest="25"
+           HeightRequest="25"
+           Source="gear.png"
+           Clicked="GoToParameter"/>
+    </Grid>
+</ContentView>

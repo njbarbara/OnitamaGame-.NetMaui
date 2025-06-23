@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnitamaMaui.Pages.SettingsPage"
+             Title="SettingsPage">
+
+    <Grid>
+        <Image Source="onitamaback.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill"/>
+
+        <BoxView Color="Gray"
+                 Opacity="0.5"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Fill"/>
+
+        <Grid RowDefinitions="1*, 9*">
+            <Grid ColumnDefinitions="20*,60*,20*"
+                  Grid.Row="0">
+                <ImageButton  
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    WidthRequest="25"
+                    HeightRequest="25"
+                    Source="arrow_back.png"
+                    
+                    Clicked="GoBackArrow"/>
+            </Grid>
+
+            <Grid RowDefinitions="1*, 1*, 1*"
+                  Grid.Row="1">
+                <VerticalStackLayout Grid.Row="0"
+                                     HorizontalOptions="Center">
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="20"
+                           FontSize="30"
+                           TextColor="Black">
+                        Musique
+                    </Label>
+                    <Slider Minimum="0"
+                            Maximum="1"
+                            Value="0.25"
+                            WidthRequest="300"
+                            VerticalOptions="Center"
+                            MinimumTrackColor="Red"
+                            MaximumTrackColor="Grey"
+                            ValueChanged="OnMusic_ValueChanged"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1"
+                                     HorizontalOptions="Center">
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="20"
+                           TextColor="Black"
+                           FontSize="30">
+                        Son
+                    </Label>
+                    <Slider Minimum="0"
+                            Maximum="1"
+                            Value="0.25"
+                            WidthRequest="300"
+                            VerticalOptions="Center"
+                            MinimumTrackColor="Red"
+                            MaximumTrackColor="Grey"
+                            ValueChanged="OnSoundSlider_ValueChanged"/>
+                </VerticalStackLayout>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
